@@ -2,26 +2,29 @@
   "name": "react-native-button-sdk",
   "title": "React Native Button SDK",
   "version": "0.0.1",
-  "description": "TODO",
-  "main": "index.js",
-  "types": "index.d.ts",
-  "scripts": {},
+  "description": "React Native module for using the Button SDK.",
+  "author": "Cody Brouwers <cbrouwers@flipgive.com>",
+  "license": "MIT",
+  "licenseFilename": "LICENSE",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BetterTheWorld/react-native-button-sdk.git",
     "baseUrl": "https://github.com/BetterTheWorld/react-native-button-sdk"
   },
+  "bugs": {
+    "url": "https://github.com/BetterTheWorld/react-native-button-sdk/issues"
+  },
+  "homepage": "https://github.com/BetterTheWorld/react-native-button-sdk#readme",
+  "directories": {
+    "example": "example"
+  },
   "keywords": [
     "react-native",
     "button-sdk"
   ],
-  "author": {
-    "name": "Cody Brouwers",
-    "email": "cbrouwers@flipgive.com"
-  },
-  "license": "MIT",
-  "licenseFilename": "LICENSE",
-  "readmeFilename": "README.md",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "scripts": {},
   "peerDependencies": {
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
