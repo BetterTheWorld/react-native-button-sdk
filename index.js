@@ -1,32 +1,25 @@
 import { NativeModules } from "react-native";
 
-// const { ButtonSdk: NativeButtonSdk } = NativeModules;
+const { ButtonSdk } = NativeModules;
 
 const { version } = require("./package.json");
 export const VERSION = version;
 
-console.info("Initializing react-native-button-sdk v. " + VERSION);
-
-class ButtonSdk {
-  // static setIdentifier(id) {
-  //   // console.log("---setIdentifier", id, ButtonSdk);
-  //   ButtonSdk.setIdentifier(id);
-  // }
-
-  // static startPurchasePath(url, token) {
-  //   // console.log("NativeModules", NativeModules);
-  //   // console.log("---startPurchasePath", url, token);
-  //   NativeButtonSdk.startPurchasePath(url, token);
-  //   return null;
-  // }
-
-  static setup() {
-    NativeModules.ButtonSdk.setup();
-  }
-
-  static clearAllData() {
-    NativeModules.ButtonSdk.clearAllData();
-  }
+export function setIdentifier(id) {
+  ButtonSdk.setIdentifier(id);
 }
 
-export default ButtonSdk;
+export function clearAllData() {
+  ButtonSdk.clearAllData();
+}
+
+export function startPurchasePath(options) {
+  ButtonSdk.startPurchasePath(options);
+}
+
+export default {
+  VERSION,
+  setIdentifier,
+  clearAllData,
+  startPurchasePath
+};
