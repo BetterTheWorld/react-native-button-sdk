@@ -1,9 +1,16 @@
 package com.reactnative.buttonsdk;
 
+import javax.annotation.Nullable;
+
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.ReadableMap;
+
+import com.usebutton.sdk.Button;
+import com.usebutton.sdk.purchasepath.PurchasePath;
+import com.usebutton.sdk.purchasepath.PurchasePathRequest;
+import com.usebutton.sdk.purchasepath.PurchasePathListener;
 
 public class ButtonSdkModule extends ReactContextBaseJavaModule {
 
@@ -20,8 +27,30 @@ public class ButtonSdkModule extends ReactContextBaseJavaModule {
   }
 
   @ReactMethod
-  public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-    // TODO: Implement some actually useful functionality
-    callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+  public void setIdentifier(String identifier) {
+    Button.user().setIdentifier(identifier);
+  }
+
+  @ReactMethod
+  public void clearAllData() {
+    Button.clearAllData();
+  }
+
+  @ReactMethod
+  public void startPurchasePath(ReadableMap options) {
+    PurchasePathRequest request = new PurchasePathRequest(options.getString("url"));
+
+    if (options.hasKey("token") && options.getString("token").length() > 0) {
+      request.setPubRef(options.getString("token"));
+    }
+
+    Button.purchasePath().fetch(request, new PurchasePathListener() {
+      @Override
+      public void onComplete(@Nullable PurchasePath purchasePath, @Nullable Throwable throwable) {
+        if (purchasePath != null) {
+          purchasePath.start(reactContext);
+        }
+      }
+    });
   }
 }
