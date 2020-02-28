@@ -1,7 +1,7 @@
 {
   "name": "react-native-button-sdk",
   "title": "React Native Button SDK",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "React Native module for using the Button SDK.",
   "author": "Cody Brouwers <cbrouwers@flipgive.com>",
   "license": "MIT",
