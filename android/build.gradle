@@ -73,6 +73,7 @@ repositories {
 dependencies {
   //noinspection GradleDynamicVersion
   implementation 'com.facebook.react:react-native:+'  // From node_modules
+  implementation 'com.usebutton:android-sdk:6+'
 }
 
 def configureReactNativePom(def pom) {
