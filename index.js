@@ -1,4 +1,4 @@
-import { NativeModules } from "react-native";
+import { NativeModules, processColor } from "react-native";
 
 const { ButtonSdk } = NativeModules;
 
@@ -14,7 +14,15 @@ export function clearAllData() {
 }
 
 export function startPurchasePath(options) {
-  ButtonSdk.startPurchasePath(options);
+  ButtonSdk.startPurchasePath({
+    ...options,
+    headerTitleColor: processColor(options.headerTitleColor),
+    headerSubtitleColor: processColor(options.headerSubtitleColor),
+    headerBackgroundColor: processColor(options.headerBackgroundColor),
+    headerTintColor: processColor(options.headerTintColor),
+    footerBackgroundColor: processColor(options.footerBackgroundColor),
+    footerTintColor: processColor(options.footerTintColor)
+  });
 }
 
 export default {

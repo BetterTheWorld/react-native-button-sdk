@@ -3,6 +3,7 @@
 #ifdef DEBUG
   #import <React/RCTLog.h>
 #endif
+#import "PurchasePathExtension.h"
 @import Button;
 
 @implementation ButtonSdk
@@ -29,6 +30,9 @@ RCT_EXPORT_METHOD(startPurchasePath:(NSDictionary *)options) {
   #ifdef DEBUG
     RCTLogInfo(@"react-native-button-sdk startPurchasePath: url: %@", url);
   #endif
+
+  PurchasePathExtension *purchasePathExtension = [[PurchasePathExtension alloc] initWithOptions:options];
+  Button.purchasePath.extension = purchasePathExtension;
 
   BTNPurchasePathRequest *request = [BTNPurchasePathRequest requestWithURL:url];
 

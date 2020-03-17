@@ -16,4 +16,22 @@ export function clearAllData(): void;
 export function startPurchasePath(options: {
   url: string;
   token?: string;
+  headerTitle?: string;
+  headerSubtitle?: string;
+  headerTitleColor?: string;
+  headerSubtitleColor?: string;
+  headerBackgroundColor?: string;
+  headerTintColor?: string;
+  footerBackgroundColor?: string;
+  footerTintColor?: string;
+}): void;
+
+/**
+ * openURL
+ * @param options
+ */
+export function openURL(options: {
+  url: string;
+  title?: string;
+  subtitle?: string;
 }): void;
