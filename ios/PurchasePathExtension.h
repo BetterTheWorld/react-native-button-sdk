@@ -12,6 +12,6 @@
 @property (nonatomic, nullable) UIColor *footerBackgroundColor;
 @property (nonatomic, nullable) UIColor *footerTintColor;
 
--(id)initWithOptions:(NSDictionary *)options;
+-(nonnull id)initWithOptions:(nonnull NSDictionary *)options;
 
 @end
